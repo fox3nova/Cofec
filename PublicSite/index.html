@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cofec - 快速、精準、由你掌控的財務記錄</title>
-  <meta name="description" content="Cofec 是一款快速、精準、使用者可控的個人財務記錄工具，支援手動記帳、AI 照片草稿、匯入匯出、備份與報表。">
+  <title>Cofec - 快速、精準、可對帳的個人財務記錄</title>
+  <meta name="description" content="Cofec 是一款本機優先的個人財務記錄工具，支援拍照記帳、照片辨識、語音記帳、手動記帳、信用卡對帳、報表、備份與資料匯出。">
+  <meta name="theme-color" content="#0b2535">
   <meta property="og:title" content="Cofec">
-  <meta property="og:description" content="花更少時間記帳，留下更好的財務資料。">
+  <meta property="og:description" content="快速記帳，也保留對帳細節。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/cofec-icon.png">
+  <meta property="og:url" content="https://fox3nova.github.io/Cofec/">
+  <meta property="og:image" content="https://fox3nova.github.io/Cofec/assets/images/cofec-icon.png">
+  <link rel="canonical" href="https://fox3nova.github.io/Cofec/">
   <link rel="icon" href="assets/images/cofec-icon.png">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -30,13 +33,10 @@
       <div class="hero-copy">
         <p class="eyebrow">個人財務記錄工具</p>
         <h1>Cofec</h1>
-        <p class="hero-line">花更少時間記帳，留下更好的財務資料。</p>
-        <p class="hero-detail">
-          Cofec 專注在快速輸入、明細完整、資料可匯出與可備份。AI 照片解析只負責幫你建立草稿，所有紀錄都要由你確認後才會儲存。
-        </p>
+        <p class="hero-detail">快速記帳，也保留對帳細節。拍照、照片、語音與手動輸入都先形成草稿，確認後才儲存。</p>
         <div class="hero-actions" aria-label="主要動作">
-          <a class="button primary" href="support.html">查看支援資訊</a>
-          <a class="button secondary" href="privacy.html">閱讀隱私權</a>
+          <a class="button primary" href="support.html">查看支援</a>
+          <a class="button secondary" href="privacy.html">隱私權政策</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -49,34 +49,41 @@
       <div class="section-inner intro-grid">
         <div>
           <p class="eyebrow">產品定位</p>
-          <h2>不是只追求自動化，而是把記帳變快又可信。</h2>
+          <h2>不是自動理財，而是可信的記錄系統。</h2>
         </div>
         <p>
-          Cofec 適合需要留下可對帳、可查詢、可匯出的個人財務紀錄的人。它不連接銀行帳戶、不替你做投資或稅務建議，也不會讓 AI 靜默建立交易。
+          Cofec 適合需要快速留下明細、日後能對帳、能查詢、能匯出的個人使用者。它不連接銀行帳戶或信用卡 API，也不提供投資、稅務或自動理財建議。
         </p>
       </div>
     </section>
 
     <section class="section">
       <div class="section-inner">
-        <p class="eyebrow">核心功能</p>
-        <h2>從快速輸入到完整留存</h2>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>AI 照片草稿</h3>
-            <p>拍攝或匯入收據、商品與帳單圖片後，Cofec 可協助辨識商家、日期、金額、品項、折扣、費用與幣別，再交由你確認。</p>
+        <h2>目前 0.9.2 的主要功能</h2>
+        <div class="feature-grid feature-grid-asymmetric">
+          <article class="feature-card feature-card-large">
+            <h3>快速新增</h3>
+            <p>Today 頁提供拍照記帳、照片辨識、語音記帳與手動記帳入口，常用交易可以先建立草稿，再進入確認。</p>
           </article>
           <article class="feature-card">
-            <h3>手動精準記帳</h3>
-            <p>支援收入、支出、轉帳、投資、資產、負債與調整紀錄，並保留品項明細、歸屬對象、商家、備註與幣別。</p>
+            <h3>AI 草稿確認</h3>
+            <p>照片、多張圖片、PDF / OCR 與語音可交由 AI 輔助判讀。AI 只填草稿，不會直接入帳。</p>
           </article>
           <article class="feature-card">
-            <h3>報表與對帳</h3>
-            <p>用收支、帳戶、類目與交易明細檢查資料可信度，讓日常記帳不只是輸入，也能回頭確認。</p>
+            <h3>交易明細</h3>
+            <p>支援收入、支出、退款、信用卡回饋、轉帳、投資、資產與負債記錄，並保留品項、歸屬、商家、備註與幣別。</p>
+          </article>
+          <article class="feature-card">
+            <h3>信用卡對帳</h3>
+            <p>信用卡帳目可進入對帳流程，支援帳單截圖、帳單 PDF、拍攝帳單與手動對帳，不會自動建立繳款交易。</p>
+          </article>
+          <article class="feature-card feature-card-toned">
+            <h3>報表與 AI 報告</h3>
+            <p>報表可查看收支、帳戶、類目、可信度、3D 圖表與交易明細，也可匯出目前範圍或產生可保存的 AI 報告。</p>
           </article>
           <article class="feature-card">
             <h3>資料自主</h3>
-            <p>支援匯入、匯出、JSON 備份與 SQLite 備份恢復，目標是避免把你的歷史資料困在單一 App 裡。</p>
+            <p>目前支援 Money Pro .back 匯入、Cofec 備份回復、完整 JSON 匯出，以及壓縮 SQLite 備份。</p>
           </article>
         </div>
       </div>
@@ -85,33 +92,55 @@
     <section class="band image-band">
       <div class="section-inner split-proof">
         <div>
-          <p class="eyebrow">報表</p>
           <h2>看得到總覽，也能往下查明細。</h2>
           <p>
-            Cofec 的報表設計重點是可追溯。你可以從收支總覽進入類目、商家與交易明細，確認每一筆資料為何被計入。
+            Cofec 的報表設計重點是可追溯。你可以從收支、資產負債、類目與商家一路進入單筆交易，確認每個金額為什麼被計入。
           </p>
+          <div class="proof-list" aria-label="報表輸出">
+            <span>CSV</span>
+            <span>JSON</span>
+            <span>HTML</span>
+            <span>PDF</span>
+          </div>
         </div>
-        <img class="report-shot" src="assets/images/cashflow-report.jpg" alt="Cofec 收支報表畫面">
+        <img class="report-shot" src="assets/images/cashflow-report.jpg" alt="Cofec 收支報表畫面" loading="lazy">
       </div>
     </section>
 
     <section class="section">
       <div class="section-inner">
-        <p class="eyebrow">信任原則</p>
-        <h2>AI 是助理，不是記帳權威。</h2>
+        <h2>發佈前信任原則</h2>
         <div class="principle-list">
           <div>
             <strong>使用者確認</strong>
-            <span>AI 解析結果會成為可編輯草稿，不會直接入帳。</span>
+            <span>AI、語音、照片與帳單辨識結果都必須由使用者確認後才會儲存。</span>
           </div>
           <div>
             <strong>本機優先</strong>
-            <span>交易資料以裝置內資料庫為核心，備份與匯出由使用者控制。</span>
+            <span>交易資料以裝置內 SQLite 資料庫為核心，備份與匯出由使用者控制。</span>
+          </div>
+          <div>
+            <strong>資料可帶走</strong>
+            <span>設定頁可匯出完整 JSON；報表明細可依目前範圍匯出成 CSV、JSON、HTML 或 PDF。</span>
           </div>
           <div>
             <strong>不做財務建議</strong>
-            <span>Cofec 協助記錄與整理，不提供投資、稅務或自動理財建議。</span>
+            <span>Cofec 協助記錄、整理與檢查，不提供投資、稅務、借貸或信用建議。</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band release-band">
+      <div class="section-inner release-grid">
+        <div>
+          <h2>目前版本</h2>
+          <p>0.9.2 為 TestFlight 準備版。設定頁已提供版號與更新內容，方便測試者回報問題。</p>
+        </div>
+        <div class="release-notes">
+          <p>收入類目預設已整理為薪資、獎金、投資、代購、保險、拍賣、租賃。</p>
+          <p>歸屬對象、支出類目、賣場 / 地點與櫃位 / 商家預設值可由使用者刪除或新增。</p>
+          <p>設定頁已移除直接清除所有資料入口，降低誤刪風險。</p>
         </div>
       </div>
     </section>

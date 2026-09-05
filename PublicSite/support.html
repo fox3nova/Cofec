@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cofec 支援</title>
-  <meta name="description" content="Cofec 支援資訊、常見問題、資料備份、匯入匯出與 AI 解析說明。">
+  <meta name="description" content="Cofec 支援資訊，包含快速記帳、AI 草稿、信用卡對帳、匯入匯出、備份回復與問題回報。">
+  <meta name="theme-color" content="#0b2535">
+  <link rel="canonical" href="https://fox3nova.github.io/Cofec/support.html">
   <link rel="icon" href="assets/images/cofec-icon.png">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -24,10 +26,10 @@
   <main>
     <section class="page-hero support-hero">
       <div class="section-inner page-hero-inner">
-        <p class="eyebrow">Support</p>
+        <p class="eyebrow">支援中心</p>
         <h1>Cofec 支援</h1>
         <p>
-          這裡整理 Cofec 常見操作、資料安全、AI 解析與備份恢復資訊。正式公開前，支援信箱與 GitHub Issues 連結會補上。
+          這裡整理目前 0.9.2 測試版的主要操作、資料安全、AI 草稿、信用卡對帳、備份回復與問題回報方式。
         </p>
       </div>
     </section>
@@ -35,46 +37,77 @@
     <section class="section">
       <div class="section-inner support-layout">
         <aside class="support-summary" aria-label="支援狀態">
-          <h2>目前狀態</h2>
-          <p>版本階段：TestFlight 準備版</p>
-          <p>支援信箱：上架前補上</p>
-          <p>GitHub Issues：Repository 建立後補上</p>
+          <h2>發佈前狀態</h2>
+          <dl class="status-list">
+            <div>
+              <dt>版本階段</dt>
+              <dd>0.9.2 TestFlight 準備版</dd>
+            </div>
+            <div>
+              <dt>App 內位置</dt>
+              <dd>設定，關於 Cofec，版號與更新內容</dd>
+            </div>
+            <div>
+              <dt>支援管道</dt>
+              <dd>TestFlight 階段請使用 TestFlight 回饋或開發者提供的回報管道。</dd>
+            </div>
+            <div>
+              <dt>GitHub Issues</dt>
+              <dd>目前可檢視公開議題，但新 issue 建立受限。請不要在公開頁面貼上敏感財務資料。</dd>
+            </div>
+          </dl>
+          <a class="text-link" href="https://github.com/fox3nova/Cofec/issues">查看 GitHub Issues</a>
         </aside>
 
         <div class="faq-list">
           <article>
-            <h2>如何建立記帳？</h2>
-            <p>你可以從 Today 頁新增交易，選擇收入、支出、轉帳、投資、資產或負債，再填入帳戶、類目、金額與明細。必填欄位完成後才建議儲存。</p>
+            <h2>如何快速建立記帳？</h2>
+            <p>Today 頁提供拍照記帳、照片辨識、語音記帳與手動記帳。建立後會進入可編輯草稿，必填欄位完成並確認後才會儲存。</p>
           </article>
 
           <article>
-            <h2>AI 照片記帳會自動存入資料嗎？</h2>
-            <p>不會。AI 解析只會建立草稿，使用者必須先檢查商家、日期、金額、品項、折扣、費用與類目，確認後才會儲存。</p>
+            <h2>AI 會自動把交易存進去嗎？</h2>
+            <p>不會。照片、PDF / OCR、語音與帳單辨識都只會建立草稿或對帳候選資料，使用者必須檢查日期、帳戶、類目、金額、品項、折扣、費用與歸屬後才會儲存。</p>
           </article>
 
           <article>
-            <h2>收據或帳單辨識不準怎麼辦？</h2>
-            <p>請先確認照片清楚、邊界完整、金額與日期沒有被遮住。若辨識結果不一致，請在草稿內手動修正；Cofec 會優先保留可確認的原始文字與草稿資料，方便回頭檢查。</p>
+            <h2>目前支援哪些交易類型？</h2>
+            <p>手動輸入支援收入、支出、退款、信用卡回饋、轉帳、投資、資產與負債。信用卡回饋會降低信用卡欠款或形成溢繳，不列入一般收入。</p>
+          </article>
+
+          <article>
+            <h2>信用卡對帳怎麼開始？</h2>
+            <p>在信用卡帳目明細中使用對帳入口，可匯入帳單截圖、匯入帳單 PDF、拍攝帳單或手動對帳。系統會協助比對帳單列示金額與既有交易，不會自動建立或執行信用卡繳款。</p>
+          </article>
+
+          <article>
+            <h2>收據、帳單或語音辨識不準怎麼辦？</h2>
+            <p>請先確認照片清楚、邊界完整，語音內容包含店家、帳目、品項、價格、數量與歸屬。若辨識結果不一致，請在草稿內手動修正；Cofec 會優先保留可確認的原始文字與解析結果，方便回頭檢查。</p>
           </article>
 
           <article>
             <h2>如何匯入舊資料？</h2>
-            <p>設定頁提供匯入入口，可選擇已支援的備份或資料檔。匯入前建議先建立 Cofec 備份，並先檢查預覽摘要再確認寫入。</p>
+            <p>目前資料匯入支援 Money Pro .back 檔，以及 Cofec 壓縮備份或舊版 SQLite 備份回復。CSV、XLS、XLSX 與一般 JSON 檔目前可選取預檢，但尚未支援直接轉換寫入。</p>
           </article>
 
           <article>
-            <h2>如何備份與恢復？</h2>
-            <p>Cofec 可建立壓縮 SQLite 備份。若 iCloud Drive 可用，備份會放在 Cofec 的 iCloud 文件位置；不可用時會改用本機 App 支援資料夾。恢復備份前會先檢查檔案格式與資料庫結構。</p>
+            <h2>如何備份與回復？</h2>
+            <p>設定頁的定時備份可建立壓縮 SQLite 備份。iCloud Drive 可用時會保存在 Cofec/Backup；不可用時改存在本機 App 支援資料夾。回復備份前會先檢查格式與資料庫結構，確認後才會取代目前 App 內資料。</p>
           </article>
 
           <article>
             <h2>如何匯出資料？</h2>
-            <p>設定頁提供資料匯出。Cofec 的產品方向是讓交易、類目、帳戶、商家、標籤、匯入紀錄與附件中繼資料可以被帶走，不把資料鎖在 App 內。</p>
+            <p>設定頁可匯出完整 JSON 快照。報表頁可依目前範圍匯出明細，格式包含 CSV、JSON、HTML 與 PDF。AI 報告紀錄也可從 App 內開啟後匯出 HTML 或 PDF。</p>
           </article>
 
           <article>
-            <h2>遇到問題時，回報需要包含什麼？</h2>
-            <p>請描述操作步驟、預期結果、實際結果、App 版本、裝置型號與 iOS 版本。若問題與 AI 解析或匯入有關，請附上不含敏感資料的範例截圖或錯誤訊息。</p>
+            <h2>AI 用量與品質紀錄會保存什麼？</h2>
+            <p>AI 用量頁會記錄功能、模型、token、耗時、執行結果與哪些欄位曾被修改。它不保存金額、店名、品項、備註、提示詞、照片、語音文字或 OCR 內容，且不會放進帳務匯出與備份。</p>
+          </article>
+
+          <article>
+            <h2>回報問題時需要提供什麼？</h2>
+            <p>請提供操作步驟、預期結果、實際結果、App 版本、裝置型號與 iOS 版本。若問題與 AI 解析、匯入或對帳有關，請先移除敏感金額、帳號、照片與個人資料再提供範例。</p>
           </article>
         </div>
       </div>
@@ -84,7 +117,7 @@
   <footer class="site-footer">
     <div>
       <strong>Cofec</strong>
-      <span>支援頁最後更新：2026.07.29</span>
+      <span>支援頁最後更新：2026.09.05</span>
     </div>
     <nav aria-label="頁尾導覽">
       <a href="index.html">首頁</a>
