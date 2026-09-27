@@ -1,0 +1,180 @@
+{
+  "checked": "2026-09-27",
+  "exchangeRate": 32,
+  "defaultModel": "meta",
+  "models": [
+    {
+      "id": "openai-mini",
+      "provider": "OpenAI",
+      "name": "GPT-5 mini",
+      "modelID": "gpt-5-mini",
+      "input": 0.25,
+      "output": 2,
+      "vision": true,
+      "note": "一般即時 API；快取輸入另有優惠。此處不扣快取折扣。",
+      "source": "https://developers.openai.com/api/docs/models/gpt-5-mini"
+    },
+    {
+      "id": "openai-default",
+      "provider": "OpenAI",
+      "name": "GPT-5.5（Cofec 預設）",
+      "modelID": "gpt-5.5",
+      "input": 5,
+      "output": 30,
+      "vision": true,
+      "note": "一般短上下文價格；超過 272K 輸入 token 會適用較高費率。",
+      "source": "https://developers.openai.com/api/docs/models/gpt-5.5",
+      "maxInputForRate": 272000
+    },
+    {
+      "id": "anthropic",
+      "provider": "Anthropic",
+      "name": "Claude Haiku 4.5",
+      "modelID": "claude-haiku-4-5",
+      "input": 1,
+      "output": 5,
+      "vision": true,
+      "note": "輸入、輸出分開計費；快取讀取與寫入有不同價格，本試算未啟用快取。",
+      "source": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "id": "gemini",
+      "provider": "Google Gemini",
+      "name": "Gemini 2.5 Flash",
+      "modelID": "gemini-2.5-flash",
+      "input": 0.3,
+      "output": 2.5,
+      "vision": true,
+      "note": "採付費 Standard 文字／圖片費率，輸出包含 thinking；不扣免費額度。",
+      "source": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash"
+    },
+    {
+      "id": "meta",
+      "provider": "Meta（Muse）",
+      "name": "Muse Spark 1.3",
+      "modelID": "muse-spark-1.3",
+      "input": 1.25,
+      "output": 4.25,
+      "vision": true,
+      "note": "採一般方案；官方標示內容不用於改善產品。Contributor 方案另見下方說明。",
+      "source": "https://dev.meta.ai/products/meta-model-api"
+    },
+    {
+      "id": "xai",
+      "provider": "xAI",
+      "name": "Grok 4.7",
+      "modelID": "grok-4.7",
+      "input": 2,
+      "output": 6,
+      "vision": true,
+      "note": "全球 endpoint、低於 200K token 的短上下文；長上下文及區域方案另計。",
+      "source": "https://docs.x.ai/developers/pricing",
+      "maxInputForRate": 199999
+    },
+    {
+      "id": "deepseek",
+      "provider": "DeepSeek",
+      "name": "DeepSeek V4.1 Flash",
+      "modelID": "deepseek-flash",
+      "input": 0.3,
+      "output": 1.2,
+      "vision": true,
+      "note": "採尖峰、未命中快取價格；離峰輸入／輸出均半價。模型預設可能產生思考用量。",
+      "source": "https://api-docs.deepseek.com/quick_start/pricing/"
+    },
+    {
+      "id": "mistral",
+      "provider": "Mistral AI",
+      "name": "Mistral Small 4",
+      "modelID": "mistral-small-2603",
+      "input": 0.15,
+      "output": 0.6,
+      "vision": true,
+      "note": "一般即時 token 費率；Cofec 未使用另按頁收費的 Mistral OCR API。",
+      "source": "https://mistral.ai/pricing/api/"
+    },
+    {
+      "id": "groq",
+      "provider": "Groq",
+      "name": "GPT-OSS 120B",
+      "modelID": "openai/gpt-oss-120b",
+      "input": 0.15,
+      "output": 0.6,
+      "vision": false,
+      "note": "此範例為文字模型；可試文字解析，不適用直接傳入照片的功能。",
+      "source": "https://console.groq.com/docs/model/openai/gpt-oss-120b"
+    },
+    {
+      "id": "together",
+      "provider": "Together AI",
+      "name": "Qwen3.5 9B",
+      "modelID": "Qwen/Qwen3.5-9B",
+      "input": 0.17,
+      "output": 0.25,
+      "vision": true,
+      "note": "採 Serverless 隨用隨付費率；不是租用 GPU 或專用 endpoint 的小時計價。",
+      "source": "https://www.together.ai/models/qwen3-5-9b"
+    },
+    {
+      "id": "openrouter",
+      "provider": "OpenRouter",
+      "name": "Muse Spark 1.3",
+      "modelID": "meta/muse-spark-1.3",
+      "input": 1.25,
+      "output": 4.25,
+      "vision": true,
+      "note": "以此模型當日路由價示例；儲值平台手續費另計，未加進 token 試算。",
+      "source": "https://openrouter.ai/meta/muse-spark-1.3"
+    },
+    {
+      "id": "qwen",
+      "provider": "阿里雲通義千問",
+      "name": "Qwen3 VL Plus",
+      "modelID": "qwen3-vl-plus",
+      "input": 0.2,
+      "output": 1.6,
+      "vision": true,
+      "note": "新加坡 International、每次輸入不超過 32K token；其他區域與用量級距不同。",
+      "source": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+      "maxInputForRate": 32000
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "voice",
+      "name": "語音轉文字後的 AI 記帳",
+      "input": 3000,
+      "output": 1000,
+      "count": 30,
+      "vision": false,
+      "detail": "短句、提示詞、類目及 JSON 格式；語音先由 Apple Speech 轉成文字。"
+    },
+    {
+      "id": "receipt",
+      "name": "一張收據／商品照片",
+      "input": 6000,
+      "output": 2000,
+      "count": 60,
+      "vision": true,
+      "detail": "以單張、少量品項示例；輸入已含假設的圖片計費 token、OCR 與類目。"
+    },
+    {
+      "id": "statement",
+      "name": "一份信用卡帳單",
+      "input": 18000,
+      "output": 6000,
+      "count": 2,
+      "vision": false,
+      "detail": "以已抽出的文字及數十筆明細示例；若送圖片或多頁，請增加輸入用量並選圖片模型。"
+    },
+    {
+      "id": "report",
+      "name": "一份 AI 報表分析",
+      "input": 12000,
+      "output": 4000,
+      "count": 4,
+      "vision": false,
+      "detail": "彙整資料與分析文字示例；期間越長、送出明細越多，用量可能增加。"
+    }
+  ]
+}

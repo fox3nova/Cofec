@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cofec 支援</title>
-  <meta name="description" content="Cofec 支援資訊，包含快速記帳、AI 草稿、信用卡對帳、匯入匯出、備份回復與問題回報。">
+  <meta name="description" content="Cofec 常見問題與 AI 費用：11 家 API 服務商價格、照片記帳與報表分析的用量估算、每月費用試算。">
   <meta name="theme-color" content="#0b2535">
   <link rel="canonical" href="https://fox3nova.github.io/Cofec/support.html">
   <link rel="icon" href="assets/images/cofec-icon.png">
@@ -29,23 +29,164 @@
         <p class="eyebrow">支援中心</p>
         <h1>Cofec 支援</h1>
         <p>
-          這裡整理目前 0.9.2 測試版的主要操作、資料安全、AI 草稿、信用卡對帳、備份回復與問題回報方式。
+          這裡整理 AI 服務商計費、功能用量試算，以及記帳、對帳、備份回復與問題回報方式。
         </p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section pricing-section" id="ai-costs" aria-labelledby="ai-cost-title">
+      <div class="section-inner">
+        <p class="eyebrow">FAQ · AI 費用</p>
+        <h2 id="ai-cost-title">用 AI 記一筆帳，會花多少？</h2>
+        <p class="pricing-intro">API 按模型與實際用量計費。下方整理 Cofec 支援的 11 家服務商，讓你比較單次費用，再依自己的使用次數估算每月開銷。</p>
+        <p class="pricing-date">價格查核：<time datetime="2026-09-27">2026.09.27</time> · 適用 Cofec 1.12.0 起的 AI 設定 · 金額為未稅估算</p>
+        <nav class="pricing-jumps" aria-label="AI 費用段落">
+          <a href="#ai-rates">各家價格</a><a href="#ai-assumptions">功能用量</a><a href="#ai-calculator">我的月費試算</a><a href="#ai-billing-faq">計費問答</a>
+        </nav>
+        <div class="pricing-explainer">
+          <div><h3>費用付給 API 服務商</h3><p>你在 Cofec 填入自己的 API Key，由選定服務商扣除額度或出帳。聊天 App 訂閱不代表已取得可用於 Cofec 的 API 額度。</p></div>
+          <div><h3>輸入＋輸出，分開算</h3><p>輸入包含提示詞、類目、文字及圖片換算用量；輸出包含結構化結果與服務商計費的推理 token。Token 是模型用量單位，不等於中文字數。</p></div>
+          <div><h3>先看示例，再看實際用量</h3><p>以下是統一假設下的比較，不是實測平均或費用上限。長帳單、圖片解析度、推理與重試都可能增加費用；以服務商帳單為準。</p></div>
+        </div>
+
+        <h3 id="ai-rates">11 家服務商的代表模型價格</h3>
+        <p>單價為美元／100 萬 token，採一般即時請求、未命中快取費率，不扣免費額度或批次折扣。每家可能有多種模型；這不是完整模型清單，也不是辨識品質排名。列出價格不代表所有帳戶都能呼叫，請在 App 內測試文字／圖片與結構化輸出。</p>
+        <p id="price-table-help" class="pricing-caption">單張照片試算：6,000 輸入＋2,000 計費輸出 token；新臺幣暫以 US$1＝NT$32 換算，非即時匯率。手機可左右滑動表格。</p>
+        <div class="pricing-table-wrap" role="region" tabindex="0" aria-label="API 模型價格表，可左右捲動" aria-describedby="price-table-help">
+          <table class="pricing-table">
+            <caption>代表模型價格與單張照片的示例成本</caption>
+            <thead><tr><th scope="col">服務商／模型</th><th scope="col">輸入 US$/M</th><th scope="col">輸出 US$/M</th><th scope="col">照片 NT$/次</th><th scope="col">計費條件與來源</th></tr></thead>
+            <tbody><!-- AI_PRICE_ROWS -->
+<tr><th scope="row">OpenAI<span>GPT-5 mini</span><code>gpt-5-mini</code></th><td>0.25</td><td>2</td><td>0.176</td><td>一般即時 API；快取輸入另有優惠。此處不扣快取折扣。 <a href="https://developers.openai.com/api/docs/models/gpt-5-mini">官方價格</a></td></tr>
+<tr><th scope="row">OpenAI<span>GPT-5.5（Cofec 預設）</span><code>gpt-5.5</code></th><td>5</td><td>30</td><td>2.880</td><td>一般短上下文價格；超過 272K 輸入 token 會適用較高費率。 <a href="https://developers.openai.com/api/docs/models/gpt-5.5">官方價格</a></td></tr>
+<tr><th scope="row">Anthropic<span>Claude Haiku 4.5</span><code>claude-haiku-4-5</code></th><td>1</td><td>5</td><td>0.512</td><td>輸入、輸出分開計費；快取讀取與寫入有不同價格，本試算未啟用快取。 <a href="https://platform.claude.com/docs/en/about-claude/pricing">官方價格</a></td></tr>
+<tr><th scope="row">Google Gemini<span>Gemini 2.5 Flash</span><code>gemini-2.5-flash</code></th><td>0.3</td><td>2.5</td><td>0.218</td><td>採付費 Standard 文字／圖片費率，輸出包含 thinking；不扣免費額度。 <a href="https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash">官方價格</a></td></tr>
+<tr><th scope="row">Meta（Muse）<span>Muse Spark 1.3</span><code>muse-spark-1.3</code></th><td>1.25</td><td>4.25</td><td>0.512</td><td>採一般方案；官方標示內容不用於改善產品。Contributor 方案另見下方說明。 <a href="https://dev.meta.ai/products/meta-model-api">官方價格</a></td></tr>
+<tr><th scope="row">xAI<span>Grok 4.7</span><code>grok-4.7</code></th><td>2</td><td>6</td><td>0.768</td><td>全球 endpoint、低於 200K token 的短上下文；長上下文及區域方案另計。 <a href="https://docs.x.ai/developers/pricing">官方價格</a></td></tr>
+<tr><th scope="row">DeepSeek<span>DeepSeek V4.1 Flash</span><code>deepseek-flash</code></th><td>0.3</td><td>1.2</td><td>0.134</td><td>採尖峰、未命中快取價格；離峰輸入／輸出均半價。模型預設可能產生思考用量。 <a href="https://api-docs.deepseek.com/quick_start/pricing/">官方價格</a></td></tr>
+<tr><th scope="row">Mistral AI<span>Mistral Small 4</span><code>mistral-small-2603</code></th><td>0.15</td><td>0.6</td><td>0.067</td><td>一般即時 token 費率；Cofec 未使用另按頁收費的 Mistral OCR API。 <a href="https://mistral.ai/pricing/api/">官方價格</a></td></tr>
+<tr><th scope="row">Groq<span>GPT-OSS 120B</span><code>openai/gpt-oss-120b</code></th><td>0.15</td><td>0.6</td><td>不適用圖片</td><td>此範例為文字模型；可試文字解析，不適用直接傳入照片的功能。 <a href="https://console.groq.com/docs/model/openai/gpt-oss-120b">官方價格</a></td></tr>
+<tr><th scope="row">Together AI<span>Qwen3.5 9B</span><code>Qwen/Qwen3.5-9B</code></th><td>0.17</td><td>0.25</td><td>0.049</td><td>採 Serverless 隨用隨付費率；不是租用 GPU 或專用 endpoint 的小時計價。 <a href="https://www.together.ai/models/qwen3-5-9b">官方價格</a></td></tr>
+<tr><th scope="row">OpenRouter<span>Muse Spark 1.3</span><code>meta/muse-spark-1.3</code></th><td>1.25</td><td>4.25</td><td>0.512</td><td>以此模型當日路由價示例；儲值平台手續費另計，未加進 token 試算。 <a href="https://openrouter.ai/meta/muse-spark-1.3">官方價格</a></td></tr>
+<tr><th scope="row">阿里雲通義千問<span>Qwen3 VL Plus</span><code>qwen3-vl-plus</code></th><td>0.2</td><td>1.6</td><td>0.141</td><td>新加坡 International、每次輸入不超過 32K token；其他區域與用量級距不同。 <a href="https://www.alibabacloud.com/help/en/model-studio/model-pricing">官方價格</a></td></tr>
+<!-- /AI_PRICE_ROWS --></tbody>
+          </table>
+        </div>
+        <p class="pricing-caption">自訂相容 API 沒有統一價格；可在下方試算器選「自訂費率」，填入該服務的單價。</p>
+        <aside class="pricing-note" aria-label="方案差異">
+          <p><strong>Meta Muse 的低價方案有不同資料條件。</strong>官方另列 <code>muse-spark-1.3-contributor</code> 為輸入 US$0.10、輸出 US$0.20／100 萬 token，並標示內容會用於改善產品。上表採一般 Muse Spark 1.3；涉及財務內容時，請先確認所選方案的資料條款。<a href="https://dev.meta.ai/products/meta-model-api">Meta 官方價格與資料條件</a></p>
+          <p><strong>OpenRouter 儲值費另外算。</strong>Standard 方案購買額度有 5.5% 平台費，官方說明列有每次最低 US$0.80；這是購買額度的費用，不是每次 API 呼叫都收 US$0.80。試算未包含此費用、稅金或匯差。<a href="https://openrouter.ai/pricing/">方案價格</a>、<a href="https://openrouter.ai/blog/tutorials/any-coding-agent/">儲值費說明</a></p>
+        </aside>
+
+        <h3 id="ai-assumptions">Cofec 各功能怎麼估算？</h3>
+        <p>下列數字是<strong>可調整的規劃示例，尚非真實 API 帳單的平均值</strong>。輸入已預留提示詞、類目與 JSON 格式；輸出是包含推理在內的總計費用量。不同模型處理相同資料也可能產生不同 token 數。</p>
+        <div class="pricing-table-wrap" role="region" tabindex="0" aria-label="功能用量假設表，可左右捲動">
+          <table class="pricing-table scenario-table"><caption>每次 AI 請求的示例用量</caption>
+            <thead><tr><th scope="col">功能</th><th scope="col">輸入 token</th><th scope="col">計費輸出 token</th><th scope="col">示例內容</th></tr></thead>
+            <tbody><!-- AI_SCENARIO_ROWS -->
+<tr><th scope="row">語音轉文字後的 AI 記帳</th><td>3,000</td><td>1,000</td><td>短句、提示詞、類目及 JSON 格式；語音先由 Apple Speech 轉成文字。</td></tr>
+<tr><th scope="row">一張收據／商品照片</th><td>6,000</td><td>2,000</td><td>以單張、少量品項示例；輸入已含假設的圖片計費 token、OCR 與類目。</td></tr>
+<tr><th scope="row">一份信用卡帳單</th><td>18,000</td><td>6,000</td><td>以已抽出的文字及數十筆明細示例；若送圖片或多頁，請增加輸入用量並選圖片模型。</td></tr>
+<tr><th scope="row">一份 AI 報表分析</th><td>12,000</td><td>4,000</td><td>彙整資料與分析文字示例；期間越長、送出明細越多，用量可能增加。</td></tr>
+<!-- /AI_SCENARIO_ROWS --></tbody>
+          </table>
+        </div>
+        <p class="pricing-formula">單次美元費用＝（輸入 token × 輸入單價＋計費輸出 token × 輸出單價）÷ 1,000,000</p>
+        <!-- AI_WORKED_EXAMPLE -->
+<p>例如一般 Meta Muse Spark 1.3：一張照片約 US$0.016＝NT$0.512。以每月 30 次語音轉文字後的 AI 記帳、60 次一張收據／商品照片、2 次一份信用卡帳單、4 次一份 AI 報表分析 的上述用量估算，合計約 US$1.424＝NT$45.568，未含稅費與重試。</p>
+<!-- /AI_WORKED_EXAMPLE -->
+
+        <div class="cost-calculator" id="ai-calculator">
+          <h3>算算自己的每月 API 用量費</h3>
+          <p>選擇模型後調整次數；也可展開每個功能，替換成 App「AI 用量與品質」顯示的 token。所有計算都在此網頁內完成，不需要 API Key，也不會呼叫 AI。</p>
+          <noscript><p>開啟 JavaScript 可使用互動試算。未開啟時，仍可參考上方完整價目、用量表與 Meta 計算範例。</p></noscript>
+          <form id="cost-form" hidden novalidate>
+            <div class="cost-fields">
+              <label for="cost-model">服務商／模型（必填）<select id="cost-model" required><!-- AI_MODEL_OPTIONS -->
+<option value="openai-mini">OpenAI · GPT-5 mini</option>
+<option value="openai-default">OpenAI · GPT-5.5（Cofec 預設）</option>
+<option value="anthropic">Anthropic · Claude Haiku 4.5</option>
+<option value="gemini">Google Gemini · Gemini 2.5 Flash</option>
+<option value="meta" selected>Meta（Muse） · Muse Spark 1.3</option>
+<option value="xai">xAI · Grok 4.7</option>
+<option value="deepseek">DeepSeek · DeepSeek V4.1 Flash</option>
+<option value="mistral">Mistral AI · Mistral Small 4</option>
+<option value="groq">Groq · GPT-OSS 120B</option>
+<option value="together">Together AI · Qwen3.5 9B</option>
+<option value="openrouter">OpenRouter · Muse Spark 1.3</option>
+<option value="qwen">阿里雲通義千問 · Qwen3 VL Plus</option>
+<!-- /AI_MODEL_OPTIONS --><option value="custom">自訂費率／其他模型</option></select></label>
+              <label for="cost-fx">換算匯率：1 美元＝新臺幣（必填）<input id="cost-fx" type="number" min="0.01" max="1000" step="0.01" value="32" required inputmode="decimal"><small>預填 32 是估算假設，可自行修改。</small></label>
+            </div>
+            <div id="custom-rates" class="cost-fields" hidden>
+              <label for="custom-input">輸入單價（US$／100 萬 token，必填）<input id="custom-input" type="number" min="0" max="10000" step="any" inputmode="decimal"></label>
+              <label for="custom-output">輸出單價（US$／100 萬 token，必填）<input id="custom-output" type="number" min="0" max="10000" step="any" inputmode="decimal"></label>
+              <label for="custom-vision" class="cost-checkbox"><input id="custom-vision" type="checkbox">此自訂模型支援圖片輸入</label>
+            </div>
+            <p id="selected-rate" class="pricing-caption"></p>
+            <div class="cost-scenarios"><!-- AI_CALCULATOR_FIELDS -->
+<fieldset class="cost-scenario"><legend>語音轉文字後的 AI 記帳</legend>
+<label for="voice-count">每月次數（必填）<input id="voice-count" type="number" min="0" max="100000" step="1" value="30" required inputmode="numeric"></label>
+<p id="voice-cost" class="scenario-cost"></p>
+<details><summary>調整每次 token 用量</summary><div class="cost-fields">
+<label for="voice-input">輸入 token／次（必填）<input id="voice-input" type="number" min="0" max="1000000" step="1" value="3000" required inputmode="numeric"></label>
+<label for="voice-output">計費輸出 token／次（必填）<input id="voice-output" type="number" min="0" max="1000000" step="1" value="1000" required inputmode="numeric"></label>
+</div></details></fieldset>
+<fieldset class="cost-scenario"><legend>一張收據／商品照片</legend>
+<label for="receipt-count">每月次數（必填）<input id="receipt-count" type="number" min="0" max="100000" step="1" value="60" required inputmode="numeric"></label>
+<p id="receipt-cost" class="scenario-cost"></p>
+<details><summary>調整每次 token 用量</summary><div class="cost-fields">
+<label for="receipt-input">輸入 token／次（必填）<input id="receipt-input" type="number" min="0" max="1000000" step="1" value="6000" required inputmode="numeric"></label>
+<label for="receipt-output">計費輸出 token／次（必填）<input id="receipt-output" type="number" min="0" max="1000000" step="1" value="2000" required inputmode="numeric"></label>
+</div></details></fieldset>
+<fieldset class="cost-scenario"><legend>一份信用卡帳單</legend>
+<label for="statement-count">每月次數（必填）<input id="statement-count" type="number" min="0" max="100000" step="1" value="2" required inputmode="numeric"></label>
+<p id="statement-cost" class="scenario-cost"></p>
+<details><summary>調整每次 token 用量</summary><div class="cost-fields">
+<label for="statement-input">輸入 token／次（必填）<input id="statement-input" type="number" min="0" max="1000000" step="1" value="18000" required inputmode="numeric"></label>
+<label for="statement-output">計費輸出 token／次（必填）<input id="statement-output" type="number" min="0" max="1000000" step="1" value="6000" required inputmode="numeric"></label>
+</div></details></fieldset>
+<fieldset class="cost-scenario"><legend>一份 AI 報表分析</legend>
+<label for="report-count">每月次數（必填）<input id="report-count" type="number" min="0" max="100000" step="1" value="4" required inputmode="numeric"></label>
+<p id="report-cost" class="scenario-cost"></p>
+<details><summary>調整每次 token 用量</summary><div class="cost-fields">
+<label for="report-input">輸入 token／次（必填）<input id="report-input" type="number" min="0" max="1000000" step="1" value="12000" required inputmode="numeric"></label>
+<label for="report-output">計費輸出 token／次（必填）<input id="report-output" type="number" min="0" max="1000000" step="1" value="4000" required inputmode="numeric"></label>
+</div></details></fieldset>
+<!-- /AI_CALCULATOR_FIELDS --></div>
+            <label for="cost-multiplier" class="cost-multiplier">額外呼叫倍率（必填）<input id="cost-multiplier" type="number" min="1" max="20" step="0.1" value="1" required inputmode="decimal"><small>1＝每次只呼叫一次；1.2＝額外預留 20% 重試或重做用量。這不是支出上限。</small></label>
+            <div class="cost-result" aria-live="polite" aria-atomic="true">
+              <p id="cost-error" hidden></p>
+              <p id="cost-total"></p>
+              <p id="cost-detail"></p>
+            </div>
+            <button class="cost-reset" type="reset">回到示例用量</button>
+          </form>
+        </div>
+
+        <div class="billing-faq" id="ai-billing-faq">
+          <h3>關於 API 費用，你可能還想知道</h3>
+          <details><summary>哪些功能不會產生這些 API 費用？</summary><p>手動記帳、查看既有交易與報表、備份及匯出不會因這些操作而呼叫上述 AI。Apple Vision 的本機 OCR 與取得 PDF 文字本身也不使用上述 API；接著執行 AI 解析才會產生模型用量。</p></details>
+          <details><summary>語音會按錄音分鐘收費嗎？圖片會按張收費嗎？</summary><p>Cofec 目前用 Apple Speech 將語音轉成文字，再交給所選模型解析；此處估算文字 API 費，不套用供應商的語音轉錄分鐘價格。收據照片是圖片理解，不是圖片生成；會依模型的圖片換算方式計入輸入用量。單張成本隨解析度、裁切與模型改變。</p></details>
+          <details><summary>為什麼實際帳單可能比試算高？</summary><p>推理 token、多頁或高解析度圖片、更多品項、較長的報表與重試都會增加用量。一次 App 操作若送出多次請求，應加總全部請求；即使結果沒有儲存成交易，已完成的模型處理仍可能計費。快取折扣、免費額度、尖離峰、稅金、儲值費與匯率則由各家方案決定。</p></details>
+          <details><summary>可以直接採用免費額度或最低價格嗎？</summary><p>免費額度可能有期限、地區及流量限制，也可能採不同的資料使用條款。例如 Gemini 官方價目區分免費與付費層的資料使用；Meta Contributor 與一般 Muse 也不同。請先確認自己的方案，本頁不把免費額度當作長期費用承諾。<a href="https://ai.google.dev/gemini-api/docs/pricing">Gemini 計費與資料條件</a></p></details>
+          <details><summary>如何核對或控制我的實際費用？</summary><p>在 Cofec 的設定 → AI 與辨識 → AI 用量與品質，查看功能、模型與 token；再到該服務商控制台核對帳單、設定用量提醒或可用的支出限制。未回傳的用量是未知，不應當成零。挑選模型後先做小量測試，確認繁體中文、圖片與金額明細都符合需求。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="general-faq">
       <div class="section-inner support-layout">
         <aside class="support-summary" aria-label="支援狀態">
-          <h2>發佈前狀態</h2>
+          <h2>操作與支援</h2>
           <dl class="status-list">
             <div>
-              <dt>版本階段</dt>
-              <dd>0.9.2 TestFlight 準備版</dd>
+              <dt>AI 費用說明</dt>
+              <dd><a href="#ai-costs">服務商價格與使用試算</a></dd>
             </div>
             <div>
               <dt>App 內位置</dt>
-              <dd>設定，關於 Cofec，版號與更新內容</dd>
+              <dd>設定 → 說明與更新紀錄</dd>
             </div>
             <div>
               <dt>支援管道</dt>
@@ -117,12 +258,16 @@
   <footer class="site-footer">
     <div>
       <strong>Cofec</strong>
-      <span>支援頁最後更新：2026.09.05</span>
+      <span>支援頁最後更新：2026.09.27</span>
     </div>
     <nav aria-label="頁尾導覽">
       <a href="index.html">首頁</a>
       <a href="privacy.html">隱私權</a>
     </nav>
   </footer>
+  <!-- AI_PRICING_DATA -->
+<script id="ai-pricing-data" type="application/json">{"checked": "2026-09-27", "exchangeRate": 32, "defaultModel": "meta", "models": [{"id": "openai-mini", "provider": "OpenAI", "name": "GPT-5 mini", "modelID": "gpt-5-mini", "input": 0.25, "output": 2, "vision": true, "note": "一般即時 API；快取輸入另有優惠。此處不扣快取折扣。", "source": "https://developers.openai.com/api/docs/models/gpt-5-mini"}, {"id": "openai-default", "provider": "OpenAI", "name": "GPT-5.5（Cofec 預設）", "modelID": "gpt-5.5", "input": 5, "output": 30, "vision": true, "note": "一般短上下文價格；超過 272K 輸入 token 會適用較高費率。", "source": "https://developers.openai.com/api/docs/models/gpt-5.5", "maxInputForRate": 272000}, {"id": "anthropic", "provider": "Anthropic", "name": "Claude Haiku 4.5", "modelID": "claude-haiku-4-5", "input": 1, "output": 5, "vision": true, "note": "輸入、輸出分開計費；快取讀取與寫入有不同價格，本試算未啟用快取。", "source": "https://platform.claude.com/docs/en/about-claude/pricing"}, {"id": "gemini", "provider": "Google Gemini", "name": "Gemini 2.5 Flash", "modelID": "gemini-2.5-flash", "input": 0.3, "output": 2.5, "vision": true, "note": "採付費 Standard 文字／圖片費率，輸出包含 thinking；不扣免費額度。", "source": "https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash"}, {"id": "meta", "provider": "Meta（Muse）", "name": "Muse Spark 1.3", "modelID": "muse-spark-1.3", "input": 1.25, "output": 4.25, "vision": true, "note": "採一般方案；官方標示內容不用於改善產品。Contributor 方案另見下方說明。", "source": "https://dev.meta.ai/products/meta-model-api"}, {"id": "xai", "provider": "xAI", "name": "Grok 4.7", "modelID": "grok-4.7", "input": 2, "output": 6, "vision": true, "note": "全球 endpoint、低於 200K token 的短上下文；長上下文及區域方案另計。", "source": "https://docs.x.ai/developers/pricing", "maxInputForRate": 199999}, {"id": "deepseek", "provider": "DeepSeek", "name": "DeepSeek V4.1 Flash", "modelID": "deepseek-flash", "input": 0.3, "output": 1.2, "vision": true, "note": "採尖峰、未命中快取價格；離峰輸入／輸出均半價。模型預設可能產生思考用量。", "source": "https://api-docs.deepseek.com/quick_start/pricing/"}, {"id": "mistral", "provider": "Mistral AI", "name": "Mistral Small 4", "modelID": "mistral-small-2603", "input": 0.15, "output": 0.6, "vision": true, "note": "一般即時 token 費率；Cofec 未使用另按頁收費的 Mistral OCR API。", "source": "https://mistral.ai/pricing/api/"}, {"id": "groq", "provider": "Groq", "name": "GPT-OSS 120B", "modelID": "openai/gpt-oss-120b", "input": 0.15, "output": 0.6, "vision": false, "note": "此範例為文字模型；可試文字解析，不適用直接傳入照片的功能。", "source": "https://console.groq.com/docs/model/openai/gpt-oss-120b"}, {"id": "together", "provider": "Together AI", "name": "Qwen3.5 9B", "modelID": "Qwen/Qwen3.5-9B", "input": 0.17, "output": 0.25, "vision": true, "note": "採 Serverless 隨用隨付費率；不是租用 GPU 或專用 endpoint 的小時計價。", "source": "https://www.together.ai/models/qwen3-5-9b"}, {"id": "openrouter", "provider": "OpenRouter", "name": "Muse Spark 1.3", "modelID": "meta/muse-spark-1.3", "input": 1.25, "output": 4.25, "vision": true, "note": "以此模型當日路由價示例；儲值平台手續費另計，未加進 token 試算。", "source": "https://openrouter.ai/meta/muse-spark-1.3"}, {"id": "qwen", "provider": "阿里雲通義千問", "name": "Qwen3 VL Plus", "modelID": "qwen3-vl-plus", "input": 0.2, "output": 1.6, "vision": true, "note": "新加坡 International、每次輸入不超過 32K token；其他區域與用量級距不同。", "source": "https://www.alibabacloud.com/help/en/model-studio/model-pricing", "maxInputForRate": 32000}], "scenarios": [{"id": "voice", "name": "語音轉文字後的 AI 記帳", "input": 3000, "output": 1000, "count": 30, "vision": false, "detail": "短句、提示詞、類目及 JSON 格式；語音先由 Apple Speech 轉成文字。"}, {"id": "receipt", "name": "一張收據／商品照片", "input": 6000, "output": 2000, "count": 60, "vision": true, "detail": "以單張、少量品項示例；輸入已含假設的圖片計費 token、OCR 與類目。"}, {"id": "statement", "name": "一份信用卡帳單", "input": 18000, "output": 6000, "count": 2, "vision": false, "detail": "以已抽出的文字及數十筆明細示例；若送圖片或多頁，請增加輸入用量並選圖片模型。"}, {"id": "report", "name": "一份 AI 報表分析", "input": 12000, "output": 4000, "count": 4, "vision": false, "detail": "彙整資料與分析文字示例；期間越長、送出明細越多，用量可能增加。"}]}</script>
+<!-- /AI_PRICING_DATA -->
+  <script src="assets/ai-pricing.js" defer></script>
 </body>
 </html>
