@@ -717,3 +717,8 @@ p {
 #ai-calculator { scroll-margin-top: 140px; }
 #selected-rate { overflow-wrap: anywhere; }
 .catalog-provider[hidden], .catalog-provider tr[hidden], .catalog-use[hidden] { display: none; }
+
+.fx-field { display: grid; align-content: start; gap: 8px; min-width: 0; }
+.fx-field .catalog-use { justify-self: start; margin-top: 0; }
+.fx-field small { line-height: 1.6; }
+.fx-field button:disabled { opacity: .6; cursor: wait; }
