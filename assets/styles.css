@@ -697,3 +697,23 @@ p {
   .cost-result, .pricing-note { padding: 18px; }
   .pricing-section [id] { scroll-margin-top: 140px; }
 }
+
+/* Provider catalogs stay collapsed until expanded or searched. */
+.catalog-controls label { display: grid; gap: 6px; font-weight: 650; }
+.catalog-controls input, .catalog-controls select { min-width: 0; width: 100%; min-height: 44px; border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; font: inherit; color: var(--ink); background: var(--paper); }
+.catalog-provider { border-top: 1px solid var(--line); padding: 4px 0; }
+.catalog-provider > summary { padding: 17px 4px; font-size: 1.05rem; font-weight: 700; cursor: pointer; }
+.catalog-provider > summary span { display: inline-block; margin-left: 12px; color: var(--muted); font-size: .85rem; font-weight: 400; }
+.catalog-provider .pricing-table { table-layout: fixed; min-width: 900px; }
+.catalog-provider .pricing-table th:first-child { width: 25%; overflow-wrap: anywhere; }
+.catalog-provider .pricing-table th:nth-child(2), .catalog-provider .pricing-table th:nth-child(3) { width: 11%; }
+.catalog-provider .pricing-table th:nth-child(4) { width: 12%; }
+.catalog-provider .pricing-table td { overflow-wrap: anywhere; }
+.catalog-use { display: block; margin-top: 10px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--accent); font: inherit; cursor: pointer; }
+.catalog-status { display: block; margin: 8px 0; font-size: .85rem; color: var(--ink); }
+.rate-tiers { margin: 10px 0; font-size: .84rem; }
+.rate-tiers summary { cursor: pointer; }
+.rate-tiers p { font-size: inherit; }
+#ai-calculator { scroll-margin-top: 140px; }
+#selected-rate { overflow-wrap: anywhere; }
+.catalog-provider[hidden], .catalog-provider tr[hidden], .catalog-use[hidden] { display: none; }
